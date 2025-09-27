@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ComponentResources xmlns="http://schemas.intempora.com/RTMaps/2011/ComponentResources" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="" xsi:noNamespaceSchemaLocation="http://www.intempora.com/schemas/RTMaps/2011/ComponentResources.xsd">
+<Type>Component</Type>
+<IconFile>ros2.png</IconFile>
+<TargetOS>Linux</TargetOS>
+<Lang lang="ENG">
+<GroupName>ROS2 Bridge</GroupName>
+<Documentation>
+<Component>
+<Alias>ROS2 Topic subscriber</Alias>
+<Description>
+<span><![CDATA[Retrieves data from existing ROS topics.
+
+To configure the component, first specify the topic name.<br/>
+Then specify the data type that will be retrived on the topic via the 'Topic type' and 'Message type' properties. <br/>
+<p>
+ROS2 Memo: 
+<ul>
+<li>"ros2 topic list" allows to list all the currently active topics in ROS2.</li>
+<li>"ros2 topic info [/topic/name]" allows to display detail info about a given ROS2 topic such as the data type provided by the topic.</li>
+<li>"ros2 topic echo [/topic/name]" allows to prompt the content of data samples published on the topic.</li>
+</ul>
+</p>
+
+<p>Information about RTMaps component output types depending on the ROS2 topic data type:<br/>
+<ul>
+<li><b>Topic type: std_msgs</b></li>
+	<ul>
+	<li><b>ROS2 Message type: int 32, float 32, int 64, float 64</b>
+		<ul>
+		<li>RTMaps output <i>output_int32, output_float32, output_int64, output_float64</i>: provides a scalar with type indicated in output name.</li>
+		</ul>
+	<li><b>ROS2 Message type: int 32 array, float 32 array, int 64 array, float 64 array, uint 8 array</b></li>
+		<ul>
+		<li>RTMaps output <i>output_[type]_array</i>: provides a vector of N [type] elements with the content of the recevied ROS array. The array layout (number of dimensions, etc) is provided on the second output. The output vector max size has to be declared in the 'max_array_size' property as RTMaps pre-allocates its output buffer sizes at execution startup. Any ROS array received with a number of elements exceeding the declared max array size will be truncated.</li>
+		<li>RTMaps output <i>array_layout</i>: information about the array layout corresponding to the vectors provided on first output. This info is provided as a custom data type on the RTMaps output which can be exploited with the "ROS array layout infos splitter" component. It the provides the array "data_offset", "dimension labels", "dimension sizes", and "dimension strides". See the ROS array documentation for details.</li>
+		</ul>
+	<li><b>ROS2 Message type: Text</b>
+		<ul>
+		<li>RTMaps output <i>output_text</i>: output with type 'MAPS::TextAscii'. Maximum expected text length has to be provided in property 'max_text_len'.</li>
+		</ul>
+	</ul>
+	<li><b>ROS2 Message type: CAN</b>
+		<ul>
+		<li>RTMaps output <i>output_can</i>: output with type 'MAPS::CANFrame'.</li>
+		</ul>
+	</ul>
+	<li><b>Topic type: sensor_msgs</b></li>
+		<ul>
+		<li><b>ROS2 Message type: CompressedImage</b>: not supported yet. Please ask if needed.</li>
+		<li><b>ROS2 Message type: Image</b></li>
+			<ul>
+			<li>RTMaps output <i>output_image</i>: provide an image of type IplImage.</li>
+			</ul>
+		<li><b>ROS Message type: Imu</b></li>
+			<ul>
+			<li>RTMaps output <i>orientation_quaternion</i>: vector of 4 elements with type MAPSFloat64 representing the quaternion  (x,y,z,w).</li>
+			<li>RTMaps output <i>angular_velocities</i>: vector of 3 elements with type MAPSFloat64 representing the x,y,z angular velocities (unit: rad/s usually).</li>		
+			<li>RTMaps output <i>accelerations</i>: vector of 3 elements with type MAPSFloat64 representing the x,y,z linear accelerations (unit: m/s2 usually).</li>		
+		</ul>
+		<li><b>ROS2 Message type: JointState</b>: not supported yet. Please ask.</li>
+		<li><b>ROS2 Message type: Joy</b></li>
+			<ul>
+			<li>RTMaps output <i>output_joy_axes</i>: vector of N elements with type MAPSFloat32. N is the number of axes.</li>
+			<li>RTMaps output <i>output_joy_buttons</i>: vector of N elements with type MAPSInteger32. N is the number of buttons.</li>
+			</ul>
+		<li><b>ROS2 Message type: JoyFeeback</b>: not supported yet. Please ask.</li>
+		<li><b>ROS2 Message type: JoyFeebackArray</b>: not supported yet. Please ask.</li>
+		<li><b>ROS2 Message type: LaserScan</b></li>
+			<ul>
+			<li>RTMaps output <i>output_laser_scan_ranges</i>: vector of N elements with type MAPSFloat64. N is the number of scan points. (unit: m usually). Ranges < or > to min and max ranges should be discarded. See output_laser_scan_info.</li>
+			<li>RTMaps output <i>output_laser_scan_intensities</i>: vector of N elements with type MAPSFloat64 containing intensity data. N is the number of scan points. (unit is device-specific)</li>
+			<li>RTMaps output <i>output_laser_scan_info</i>: vector of 7 elements with info about the laser scanner:</li>
+				<ul>
+				<li>Index 0: angle_min</li>
+				<li>Index 1: angle_max</li>
+				<li>Index 2: angle_increment</li>
+				<li>Index 3: time_increment</li>
+				<li>Index 4: scan_time</li>
+				<li>Index 5: range_min</li>
+				<li>Index 6: range_max</li>
+				</ul>
+			</ul>
+		<li><b>ROS Message type: NavSatFix</b>: not supported yet. Please ask.</li>
+		<li><b>ROS Message type: NavSatStatus</b>: not supported yet. Please ask.</li>
+		<li><b>ROS Message type: PointCloud</b></li>
+			<ul>
+			<li>RTMaps output <i>output_point_cloud</i>: vector of 3*N elements with type MAPSFloat32. N is the number of points. The vector contains the x,y,z coordinates of each scan point [x1,y1,z1,x2,y2,z2,...,xN,yN,zN].</li>
+			<li>RTMaps output <i>output_point_cloud_channel_sizes</i>: vector of N elements with type MAPSInteger32. N is the number of channels. The element values represent the number of points for the corresponding channel.</li>
+			<li>RTMaps output <i>output_point_cloud_channels</i>: vector of N elements with type MAPSFloat32. N is the number of points. Each element represent the scan distance for each point. The points are sorted by channels (points of first channel appear first in output vector, then points for the second channel, etc.)</li>
+			</ul>
+		<li><b>ROS Message type: PointCloud2</b>: </li>
+			<ul>
+			<li>RTMaps output <i>output_point_cloud_2_info</i>: vector of 6 elements with type MAPSInteger32 which content is as follows:</li>
+					<ul>
+					<li>width</li>
+					<li>height (2D structure of the point cloud. If the cloud is unordered, height is
+					1 and width is the length of the point cloud)</li>
+					<li>is big-endian (Is this data bigendian? 1 if so, 0 otherwise)</li>
+					<li>point_step (Length of a point in bytes)</li>
+					<li>row_step (Length of a row in bytes)</li>
+					<li>is dense (1 if there are no invalid points, 0 otherwise)</li>
+					</ul>
+			<li>RTMaps output <i>output_point_cloud_2_fields_names</i>: text (type MAPS::TextAscii) representing the concatenaed field names, separated by a '|' character. Ex: "my_field_1|my_field_2|my_field_3".</li>
+			<li>RTMaps output <i>output_point_cloud_2_fields_info</i>: vector of 3*N elements with type MAPSInteger32. N is the number of fields. For each field, the vector contains elements:</li>
+					<ul>
+					<li>offset: Offset from start of point struct</li>
+					<li>datatype: Datatype enumeration, see below:</li>
+							<ul>
+							<li>1: INT8</li>
+							<li>2: UINT8</li>
+							<li>3: INT16</li>
+							<li>4: UINT16</li>
+							<li>5: INT32</li>
+							<li>6: UINT32</li>
+							<li>7: FLOAT32</li>
+							<li>8: FLOAT64</li>
+							</ul>
+							Note that only PointCloud2 with datatype 7 (Float32) are supported for now. For other datatypes support, please contact Intempora.
+					<li>count: How many elements in the field</li>
+					</ul>
+			<li>RTMaps output <i>output_point_cloud_2_data</i>: vector of 32-bit floats (MAPSFloat32) representing the point cloud in x,y,z coordinates (x1, y1, z1, x2, y2, z2, etc...). Note that only PointCloud2 with datatype 7 (Float32) are supported for now. For other datatypes support, please contact Intempora.</li>
+			</ul>
+			<p>For PointCloud2 messages, a property called "max_nb_points" is created. If it is left to -1,
+			the buffer size for the <i>output_point_cloud_2_data</i>  output is determined automatically
+			based on the first message received. This assumes that subsequent PointCloud2 messages received
+			will be of constant size. In case of variable size, you need to specify property "max_nb_points" to the
+			maximum number of points that can be received in a PointCloud2 message. If this value is too low, 		
+			then a warning will be sent to the console view and the  point cloud will be truncated.</p>
+			
+		<li><b>ROS2 Message type: PointField</b>: not supported yet. Please ask.</li>
+		<li><b>ROS2 Message type: Range</b></li>
+			<ul>
+			<li>RTMaps output <i>range</i>: range data in meters as a scalar with type MAPSFloat32.  (unit: m usually).</li>
+			<li>RTMaps output <i>range_info</i>: vector of 4 elements with type MAPSFloat64 containing info about the range sensor.</li>
+				<ul>
+				<li>Index 0: radiation type (0 - Ultrasound, 1 - Infrared)</li>
+				<li>Index 1: field of view (the size of the arc that the distance reading is valid for [rad]</li>
+				<li>Index 2: minimum range value [m]</li>
+				<li>Index 3: maximum range value [m]</li>
+				</ul>
+			</ul>
+		<li><b>ROS2 Message type: RegionOfInterest</b>: not supported yet. Please ask.</li>
+		</ul>
+<li><b>Topic type: nav_msgs</b></li>
+	<ul>
+		<li><b>ROS2 Message type: Odometry</b>:</li>
+		<ul>
+			<li>RTMaps output <i>output_pose_position</i>: vector of 3 elements with type MAPSFloat64 (x,y,z)</li>
+			<li>RTMaps output <i>output_pose_orientation</i>: vector of 4 elements with type MAPSFloat64 (x,y,z,w)</li>
+			<li>RTMaps output <i>output_pose_covariance</i>: vector of 36 elements with type MAPSFloat64 (see ROS documentation).</i>
+			<li>RTMaps output <i>output_twist</i>: vector of 6 elements with type MAPSFloat64 (linear x,y,z then angular x,y,z).</li>
+			<li>RTMaps output <i>output_twist_covariance</i>: vector of 36 elements with type MAPSFloat64 (see ROS documentation).</li>
+		</ul>
+	</ul>
+</ul>]]></span>
+</Description>
+</Component>
+<Property MAPSName="topic_type">
+<Alias>Topic type</Alias>
+<Description>
+<span><![CDATA[Choose the type of data to retrieve depending on the topic you subscribe to.]]></span>
+</Description>
+</Property>
+<Property MAPSName="topic_name">
+<Alias>Topic name</Alias>
+<Description>
+<span><![CDATA[Choose the topic name to subscribe to (along with the "Message type" property).]]></span>
+</Description>
+</Property>
+<Property MAPSName="message">
+<Alias>Message type</Alias>
+<Description>
+<span><![CDATA[Choose the topic name to subscribe to.]]></span>
+</Description>
+</Property>
+</Documentation>
+</Lang>
+</ComponentResources>

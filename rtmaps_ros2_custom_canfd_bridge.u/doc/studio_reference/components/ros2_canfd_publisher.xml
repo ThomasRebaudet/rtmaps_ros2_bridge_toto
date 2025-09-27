@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ComponentResources xmlns="http://schemas.intempora.com/RTMaps/2011/ComponentResources" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="" xsi:noNamespaceSchemaLocation="http://www.intempora.com/schemas/RTMaps/2011/ComponentResources.xsd">
+<Type>Component</Type>
+<IconFile>ros2.png</IconFile>
+<TargetOS>Linux</TargetOS>
+<Lang lang="ENG">
+<GroupName>ROS2 Bridge</GroupName>
+<Documentation>
+<Component>
+<Alias>ROS2 CANFD publisher</Alias>
+<Description>
+<span><![CDATA[Publishes CANFD Frame received from RTMaps to ROS2 in the form of ROS2 topics.<br/>]]></span>
+</Description>
+</Component>
+<Property MAPSName="topic_name">
+<Alias>Topic name</Alias>
+<Description>
+<span><![CDATA[Choose the name of the topic to create and publish on.]]></span>
+</Description>
+</Property>
+</Documentation>
+</Lang>
+</ComponentResources>

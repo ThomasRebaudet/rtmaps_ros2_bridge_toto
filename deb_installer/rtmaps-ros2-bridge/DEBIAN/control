@@ -1,0 +1,10 @@
+Package: rtmaps-ros2-bridge
+Version: __version__
+Architecture: amd64
+Depends: rtmaps-runtime (>=4.1.1), __ros_can_msgs__
+Conflicts: rtmaps-ros2-bridge (<< __version__)
+Maintainer: Thomas Coffy <thomas.coffy@intempora.com>
+Priority: optional
+Installed-Size: __size__
+Description: Installation of the RTMaps ROS2 Bridge pck file in RTMaps packages folder, and associated online doc in appropriate location.
+  The RTMaps ROS bridge allows to exchange data between ROS2 and RTMaps in both directions over ROS topics.

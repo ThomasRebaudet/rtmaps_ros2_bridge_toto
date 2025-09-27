@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ComponentResources xmlns="http://schemas.intempora.com/RTMaps/2011/ComponentResources" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="" xsi:noNamespaceSchemaLocation="http://www.intempora.com/schemas/RTMaps/2011/ComponentResources.xsd">
+<Type>Component</Type>
+<IconFile>ros2.png</IconFile>
+<TargetOS>Linux</TargetOS>
+<Lang lang="ENG">
+<GroupName>ROS2 Bridge</GroupName>
+<Documentation>
+<Component>
+<Alias>ROS2 Topic publisher</Alias>
+<Description>
+<span><![CDATA[Publishes data received from RTMaps to ROS2 in the form of ROS2 topics.<br/>
+To configure the component, first specify the topic name.<br/>
+Then specify the data type that will be published on the topic via the 'Topic type' and 'Message type' properties. <br/>
+<p>
+ROS2 Memo: 
+<ul>
+<li>"ros2 topic list" allows to list all the currently active topics in ROS2.</li>
+<li>"ros2 topic info [/topic/name]" allows to display detail info about a given ROS2 topic such as the data type provided by the topic.</li>
+<li>"ros2 topic echo [/topic/name]" allows to prompt the content of data samples published on the topic.</li>
+</ul>
+</p>
+
+<p>Information about RTMaps component output types depending on the ROS2 topic data type:<br/>
+<ul>
+<li><b>Topic type: std_msgs</b></li>
+	<ul>
+	<li><b>ROS2 Message type: int 32, float 32, int 64, float 64</b>
+		<ul>
+		<li>RTMaps input <i>output_int32, output_float32, output_int64, output_float64</i>: accepts a scalar with type indicated in output name.</li>
+		</ul>
+	<li><b>ROS2 Message type: int 32 array, float 32 array, int 64 array, float 64 array, uint 8 array</b></li>
+		<ul>
+		<li>RTMaps input <i>input_[type]_array</i>: accepts a vector of N [type] elements with the content of the recevied ROS array. The publisehd array will be a single dimensional array.
+		</ul>
+	<li><b>ROS2 Message type: Text</b>
+		<ul>
+		<li>RTMaps input <i>input_text</i>: input with type 'MAPS::FilterTextAscii'.</li>
+		</ul>
+	</ul>
+	<li><b>ROS2 Message type: CAN</b>
+		<ul>
+		<li>RTMaps input <i>input_can</i>: input with type 'MAPS::FilterCANFrame'.</li>
+		</ul>
+	</ul>
+	<li><b>Topic type: sensor_msgs</b></li>
+		<ul>
+		<li><b>ROS2 Message type: CompressedImage</b>: input accepts JPEG and PNG images in the form of MAPSImage data type.</li>
+		<li><b>ROS2 Message type: Image</b></li>
+			<ul>
+			<li>RTMaps input <i>input_image</i>: accepts an image of type IplImage.</li>
+			</ul>
+		<li><b>ROS2 Message type: LaserScan</b></li>
+			<ul>
+			<li>RTMaps input <i>input_laser_scan_ranges</i>: vector of N elements with type MAPSFloat64. The characteristics of the laser scanner have to be specified in the corresponding component properties (angle range, resolution , min and max ranges...).</li>
+			<li>RTMaps input <i>input_laser_scan_intensities</i>: vector of N elements with type MAPSFloat64 containing intensity data. </li>
+				</ul>
+			</ul>
+		<ul>
+		<li><b>ROS2 Message type: PointCloud2</b>: </li>
+			<ul>
+			<li>RTMaps input <i>input_pointcloud_xyz</i>: accepts a vector of numbers with type int32, float32 or float64 (preferably int32 or float32 though for better support in ROS. This vector will be interpreted as a vector of XYZ triplets (x1, y1, z1, x2, y2, z2, etc.) The dimensions of the point cloud have to be specified in the component properties.</li>
+		</ul>
+		<p>
+		For fixed size point clouds, specify the width and height of the point clouds to publish in the corresponding component properties. For variable size point clouds, set width or height to -1, then the other member will be calculated automatically at each publication. If both width and height are set to -1, then the published point cloud width will be set to the number of received points and its height will be set to 1.
+		</p>
+	</ul>
+	<li><b>Topic type: nav_msgs</b></li>
+		<ul>	
+		<li><b>ROS2 Message type: Odometry</b></li>
+			<p>Note that in order to be read by the component, all values on all the 5 inputs have to be provided with matching Timestamps (a SynchroStartReading with a tolerance of 0 microseconds is called on the 5 inputs).</p>
+			<ul>
+			<li>RTMaps input <i>input_pose_position</i>: accepts a vector of 3 float64 (x,y,z).</li>
+			<li>RTMaps input <i>input_pose_orientation</i>: accepts a vector of 4 float64 representing a quaternion (x,y,z,w).</li>
+			<li>RTMaps input <i>input_pose_covariance</i>: accepts a vector of 36 float64 (see ROS documentation).</li>
+			<li>RTMaps input <i>input_twist</i>: accepts a vector of 6 float64 (linear x,y,z then angular x,y,z).</li>
+			<li>RTMaps input <i>input_twist_covariance</i>: accepts a vector of 36 float64 (see ROS documentation).</li>
+		</ul>
+</ul>]]></span>
+</Description>
+</Component>
+<Property MAPSName="topic_name">
+<Alias>Topic name</Alias>
+<Description>
+<span><![CDATA[Choose the name of the topic to create and publish on.]]></span>
+</Description>
+</Property>
+<Property MAPSName="topic_type">
+<Alias>Topic type</Alias>
+<Description>
+<span><![CDATA[Choose which kind of data you would like to publish (along with the "Message type" property).]]></span>
+</Description>
+</Property>
+<Property MAPSName="message">
+<Alias>Message type</Alias>
+<Description>
+<span><![CDATA[Choose which kind of data you would like to publish.]]></span>
+</Description>
+</Property>
+</Documentation>
+</Lang>
+</ComponentResources>

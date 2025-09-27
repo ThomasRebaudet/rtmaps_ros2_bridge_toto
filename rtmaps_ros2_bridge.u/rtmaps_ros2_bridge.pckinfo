@@ -1,0 +1,8 @@
+# Package information
+VERSION=1.2.1
+DESCRIPTION=ROS2 bridge for RTMaps 4
+
+# LOG
+# 1.0: initial release
+# 1.1.0: switched ROS2 node to RTMaps CoreFunction, renamed ROS2 node with RTMaps PID.
+

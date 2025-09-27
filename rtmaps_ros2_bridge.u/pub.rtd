@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RTMapsDiagram version="4.6.0" EngineVersion="4.7" xmlns="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles http://www.intempora.com/schemas/RTMaps/2011/RTMapsDiagram.xsd">
+  <RequiredPackages>
+    <File Version="1.0"><![CDATA[/home/thomas/Documents/dev/git/rtmaps-ros2-bridge/rtmaps_ros2_bridge.u/rtmaps-ros2-bridge.pck]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/rtmaps-ros2-bridge.pck]]></Relative></File>
+  </RequiredPackages>
+  <EngineProperties>
+    <Property LongName="Engine.startTimespeed" Type="1">1000</Property>
+    <Property LongName="Engine.startTime" Type="1">0</Property>
+    <Property LongName="Engine.session" Type="3"><![CDATA[unspecified]]></Property>
+    <Property LongName="Engine.recordingAtStart" Type="0">true</Property>
+    <Property LongName="Engine.recording" Type="0">true</Property>
+    <Property LongName="Engine.sequentialStart" Type="0">false</Property>
+    <Property LongName="Engine.shutdownTimeout" Type="1">10000000</Property>
+    <Property LongName="Engine.autoDetectStartTime" Type="0">true</Property>
+    <Property LongName="Engine.coreFunctionsToSaveInDiag" Type="4"><![CDATA[0|-1]]></Property>
+    <Property LongName="Engine.useUTCTimeReference" Type="0">false</Property>
+    <Property LongName="Engine.fastForwardThreshold" Type="1">2000</Property>
+    <Property LongName="Engine.fastRewindThreshold" Type="1">-2000</Property>
+    <Property LongName="Engine.priorityClass" Type="4"><![CDATA[3|0|Shared Time|Preemptive|Auto]]></Property>
+    <Property LongName="Engine.posixTimerThread" Type="4"><![CDATA[3|0|Auto|Timer Interval|Real Time Clock]]></Property>
+    <Property LongName="Engine.posixRealTimeClockIrqFrequency" Type="4"><![CDATA[4|0|1024|2048|4096|8192]]></Property>
+    <Property LongName="Engine.posixPreemptiveSchedulingPolicy" Type="4"><![CDATA[2|0|FIFO|Round Robin]]></Property>
+    <Property LongName="Engine.windowsUsePerformanceCounter" Type="0">true</Property>
+  </EngineProperties>
+  <ClocksManagement>
+    <Property LongName="ClocksManagement.activeClock" Type="4"><![CDATA[1|0|RTMaps_standard_clock]]></Property>
+  </ClocksManagement>
+  <Component InstanceName="Randint_1" Model="Randint" Version="6.5" x="104" y="120" z="0">
+    <Output LongName="Randint_1.outputInteger" Name="outputInteger">
+      <Property LongName="Randint_1.outputInteger.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputInteger.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputInteger.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="Randint_1.outputFloat" Name="outputFloat">
+      <Property LongName="Randint_1.outputFloat.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputFloat.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputFloat.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="Randint_1.outputAscii" Name="outputAscii">
+      <Property LongName="Randint_1.outputAscii.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputAscii.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputAscii.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="Randint_1.outputIntegerVector" Name="outputIntegerVector">
+      <Property LongName="Randint_1.outputIntegerVector.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputIntegerVector.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputIntegerVector.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="Randint_1.outputFloatVector" Name="outputFloatVector">
+      <Property LongName="Randint_1.outputFloatVector.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputFloatVector.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputFloatVector.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="Randint_1.period" Type="1">100000</Property>
+    <Property LongName="Randint_1.max" Type="1">100</Property>
+    <Property LongName="Randint_1.vectorSize" Type="1">5</Property>
+    <Property LongName="Randint_1.threaded" Type="0">true</Property>
+    <Property LongName="Randint_1.priority" Type="1">255</Property>
+    <Property LongName="Randint_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="ros2_topic_publisher_1" Model="ros2_topic_publisher" Version="1.0" x="632" y="120" z="0">
+    <Input LongName="ros2_topic_publisher_1.input_float64" Name="input_float64">
+      <Property LongName="ros2_topic_publisher_1.input_float64.readerType" Type="1">0</Property>
+      <Property LongName="ros2_topic_publisher_1.input_float64.subsampling" Type="1">1</Property>
+    </Input>
+    <Property LongName="ros2_topic_publisher_1.topic_name" Type="3"><![CDATA[rtmaps/ros2_rtmaps_float64]]></Property>
+    <Property LongName="ros2_topic_publisher_1.topic_type" Type="4"><![CDATA[9|0|std_msgs|sensor_msgs|geometry_msgs|nav_msgs|stereo_msgs|trajectory_msgs|visualization_msgs|actionlib_msgs|diagnostic_msgs]]></Property>
+    <Property LongName="ros2_topic_publisher_1.frame_id" Type="3"><![CDATA[map]]></Property>
+    <Property LongName="ros2_topic_publisher_1.message" Type="4"><![CDATA[9|6|Int 32|Int 32 array|Int 64|Int 64 array|Float 32|Float 32 array|Float 64|Float 64 array|Text]]></Property>
+    <Property LongName="ros2_topic_publisher_1.threaded" Type="0">true</Property>
+    <Property LongName="ros2_topic_publisher_1.priority" Type="1">128</Property>
+    <Property LongName="ros2_topic_publisher_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Connection Output="Randint_1.outputFloat" Input="ros2_topic_publisher_1.input_float64"/>
+  <RTBoardView ID="JavaStudio1.0">
+    <ConnectionShape InstanceName="ros2_topic_publisher_1.input_float64" color="0"/>
+  </RTBoardView>
+</RTMapsDiagram>

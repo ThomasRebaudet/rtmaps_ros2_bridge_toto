@@ -1,0 +1,12 @@
+<package format="2">
+  <name>rtmaps_ros2_bridge_core_function</name>
+  <version>1.0.1</version>
+  <description>
+    A singleton object that will share a ROS2 node accros the RTMaps diagram.
+  </description>
+  <maintainer email="support@intempora.com">Intempora</maintainer>
+  <license>BSD</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>std_msgs sensor_msgs geometry_msgs nav_msgs</depend>
+  <build_depend>roscpp</build_depend>
+</package>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ComponentResources xmlns="http://schemas.intempora.com/RTMaps/2011/ComponentResources" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="" xsi:noNamespaceSchemaLocation="http://www.intempora.com/schemas/RTMaps/2011/ComponentResources.xsd">
+<Type>Component</Type>
+<IconFile>ros2.png</IconFile>
+<TargetOS>Linux</TargetOS>
+<Lang lang="ENG">
+<GroupName>ROS2 Bridge</GroupName>
+<Documentation>
+<Component>
+<Alias>ROS2 CANFD subscriber</Alias>
+<Description>
+<span><![CDATA[Retrieves CANFD Frame from existing ROS topics. To configure the component, first specify the topic name.<br/>]]></span>
+</Description>
+</Component>
+<Property MAPSName="topic_name">
+<Alias>Topic name</Alias>
+<Description>
+<span><![CDATA[Choose the topic name to subscribe to (along with the "Message type" property).]]></span>
+</Description>
+</Property>
+</Documentation>
+</Lang>
+</ComponentResources>

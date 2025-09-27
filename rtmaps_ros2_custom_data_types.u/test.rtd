@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<RTMapsDiagram xmlns="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" EngineVersion="4.8" version="4.8.0" xsi:schemaLocation="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles http://www.intempora.com/schemas/RTMaps/2011/RTMapsDiagram.xsd">
+  <RequiredPackages>
+    <File Version="1.0"><![CDATA[/home/thomas/Documents/dev/git/rtmaps-ros2-bridge/rtmaps_ros2_custom_data_types/rtmaps_ros2_custom_data_types.u/rtmaps_ros2_custom_data_types.pck]]>
+<Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/rtmaps_ros2_custom_data_types.pck]]></Relative>
+</File>
+  </RequiredPackages>
+  <EngineProperties>
+    <Property LongName="Engine.startTimespeed" Type="1">1000</Property>
+    <Property LongName="Engine.startTime" Type="1">0</Property>
+    <Property LongName="Engine.session" Type="3"><![CDATA[unspecified]]></Property>
+    <Property LongName="Engine.recordingAtStart" Type="0">true</Property>
+    <Property LongName="Engine.recording" Type="0">true</Property>
+    <Property LongName="Engine.sequentialStart" Type="0">false</Property>
+    <Property LongName="Engine.shutdownTimeout" Type="1">10000000</Property>
+    <Property LongName="Engine.autoDetectStartTime" Type="0">true</Property>
+    <Property LongName="Engine.coreFunctionsToSaveInDiag" Type="4"><![CDATA[0|-1]]></Property>
+    <Property LongName="Engine.useUTCTimeReference" Type="0">false</Property>
+    <Property LongName="Engine.fastForwardThreshold" Type="1">2000</Property>
+    <Property LongName="Engine.fastRewindThreshold" Type="1">-2000</Property>
+    <Property LongName="Engine.priorityClass" Type="4"><![CDATA[3|0|Shared Time|Preemptive|Auto]]></Property>
+    <Property LongName="Engine.posixTimerThread" Type="4"><![CDATA[3|0|Auto|Timer Interval|Real Time Clock]]></Property>
+    <Property LongName="Engine.posixRealTimeClockIrqFrequency" Type="4"><![CDATA[4|0|1024|2048|4096|8192]]></Property>
+    <Property LongName="Engine.posixPreemptiveSchedulingPolicy" Type="4"><![CDATA[2|0|FIFO|Round Robin]]></Property>
+    <Property LongName="Engine.windowsUsePerformanceCounter" Type="0">true</Property>
+  </EngineProperties>
+  <ClocksManagement>
+    <Property LongName="ClocksManagement.activeClock" Type="4"><![CDATA[1|0|RTMaps_standard_clock]]></Property>
+  </ClocksManagement>
+  <Component InstanceName="DataViewer_1" Model="DataViewer" Version="1.36.2" x="816" y="104" z="0">
+    <Input LongName="DataViewer_1.input_0" Name="input_0">
+      <Property LongName="DataViewer_1.input_0.readerType" Type="1">2</Property>
+      <Property LongName="DataViewer_1.input_0.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="DataViewer_1.input_1" Name="input_1">
+      <Property LongName="DataViewer_1.input_1.readerType" Type="1">2</Property>
+      <Property LongName="DataViewer_1.input_1.subsampling" Type="1">1</Property>
+    </Input>
+    <Property LongName="DataViewer_1.nbInputs" Type="1">2</Property>
+    <Property LongName="DataViewer_1.compactMode" Type="0">false</Property>
+    <Property LongName="DataViewer_1.showInfo" Type="0">true</Property>
+    <Property LongName="DataViewer_1.showData" Type="0">true</Property>
+    <Property LongName="DataViewer_1.showPrettyTimestamp" Type="0">true</Property>
+    <Property LongName="DataViewer_1.float32Format" Type="3"><![CDATA[%9g]]></Property>
+    <Property LongName="DataViewer_1.float64Format" Type="3"><![CDATA[%9g]]></Property>
+    <Property LongName="DataViewer_1.integer8Format" Type="3"><![CDATA[%d]]></Property>
+    <Property LongName="DataViewer_1.integer16Format" Type="3"><![CDATA[%d]]></Property>
+    <Property LongName="DataViewer_1.integer32Format" Type="3"><![CDATA[%d]]></Property>
+    <Property LongName="DataViewer_1.integer64Format" Type="3"><![CDATA[%ld]]></Property>
+    <Property LongName="DataViewer_1.unsignedInteger8Format" Type="3"><![CDATA[%u]]></Property>
+    <Property LongName="DataViewer_1.unsignedInteger16Format" Type="3"><![CDATA[%u]]></Property>
+    <Property LongName="DataViewer_1.unsignedInteger32Format" Type="3"><![CDATA[%u]]></Property>
+    <Property LongName="DataViewer_1.unsignedInteger64Format" Type="3"><![CDATA[%lu]]></Property>
+    <Property LongName="DataViewer_1.hexDisplay" Type="0">false</Property>
+    <Property LongName="DataViewer_1.internalState" SubType="128" Type="3"/>
+    <Property LongName="DataViewer_1.expandedState" SubType="128" Type="3"/>
+    <Property LongName="DataViewer_1.run" Type="0">true</Property>
+    <Property LongName="DataViewer_1.alwaysOnTop" Type="4"><![CDATA[4|0|Only at run time|Only at design time|No|Both at run time and design time]]></Property>
+    <Property LongName="DataViewer_1.moveable" Type="0">true</Property>
+    <Property LongName="DataViewer_1.title" Type="3"/>
+    <Property LongName="DataViewer_1.x" Type="1">0</Property>
+    <Property LongName="DataViewer_1.y" Type="1">0</Property>
+    <Property LongName="DataViewer_1.width" Type="1">0</Property>
+    <Property LongName="DataViewer_1.height" Type="1">0</Property>
+    <Property LongName="DataViewer_1.threaded" Type="0">true</Property>
+    <Property LongName="DataViewer_1.priority" Type="1">128</Property>
+    <Property LongName="DataViewer_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="my_ros2_datatype_publisher_1" Model="my_ros2_datatype_publisher" Version="1.0" x="336" y="112" z="0">
+    <Input LongName="my_ros2_datatype_publisher_1.id" Name="id">
+      <Property LongName="my_ros2_datatype_publisher_1.id.readerType" Type="1">0</Property>
+      <Property LongName="my_ros2_datatype_publisher_1.id.subsampling" Type="1">1</Property>
+    </Input>
+    <Property LongName="my_ros2_datatype_publisher_1.topic_name" Type="3"><![CDATA[rtmaps/ros_topic_name]]></Property>
+    <Property LongName="my_ros2_datatype_publisher_1.published_timestamps" Type="4"><![CDATA[2|1|RTMaps samples timestamps|ROS current time]]></Property>
+    <Property LongName="my_ros2_datatype_publisher_1.frame_id" Type="3"><![CDATA[map]]></Property>
+    <Property LongName="my_ros2_datatype_publisher_1.threaded" Type="0">true</Property>
+    <Property LongName="my_ros2_datatype_publisher_1.priority" Type="1">128</Property>
+    <Property LongName="my_ros2_datatype_publisher_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="my_ros2_datatype_subscriber_1" Model="my_ros2_datatype_subscriber" Version="1.0" x="568" y="112" z="0">
+    <Output LongName="my_ros2_datatype_subscriber_1.id" Name="id">
+      <Property LongName="my_ros2_datatype_subscriber_1.id.subsampling" Type="1">1</Property>
+      <Property LongName="my_ros2_datatype_subscriber_1.id.fifosize" Type="1">16</Property>
+      <Property LongName="my_ros2_datatype_subscriber_1.id.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="my_ros2_datatype_subscriber_1.topic_name" Type="3"><![CDATA[rtmaps/ros_topic_name]]></Property>
+    <Property LongName="my_ros2_datatype_subscriber_1.transfer_ROS_timestamps" Type="0">true</Property>
+    <Property LongName="my_ros2_datatype_subscriber_1.subscribe_queue_size" Type="1">-1</Property>
+    <Property LongName="my_ros2_datatype_subscriber_1.threaded" Type="0">true</Property>
+    <Property LongName="my_ros2_datatype_subscriber_1.priority" Type="1">128</Property>
+    <Property LongName="my_ros2_datatype_subscriber_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="Randint_1" Model="Randint" Version="6.5" x="48" y="88" z="0">
+    <Output LongName="Randint_1.outputInteger" Name="outputInteger">
+      <Property LongName="Randint_1.outputInteger.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputInteger.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputInteger.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="Randint_1.outputFloat" Name="outputFloat">
+      <Property LongName="Randint_1.outputFloat.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputFloat.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputFloat.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="Randint_1.outputAscii" Name="outputAscii">
+      <Property LongName="Randint_1.outputAscii.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputAscii.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputAscii.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="Randint_1.outputIntegerVector" Name="outputIntegerVector">
+      <Property LongName="Randint_1.outputIntegerVector.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputIntegerVector.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputIntegerVector.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="Randint_1.outputFloatVector" Name="outputFloatVector">
+      <Property LongName="Randint_1.outputFloatVector.subsampling" Type="1">1</Property>
+      <Property LongName="Randint_1.outputFloatVector.fifosize" Type="1">16</Property>
+      <Property LongName="Randint_1.outputFloatVector.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="Randint_1.period" Type="1">100000</Property>
+    <Property LongName="Randint_1.max" Type="1">100</Property>
+    <Property LongName="Randint_1.vectorSize" Type="1">5</Property>
+    <Property LongName="Randint_1.threaded" Type="0">true</Property>
+    <Property LongName="Randint_1.priority" Type="1">255</Property>
+    <Property LongName="Randint_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Connection Input="DataViewer_1.input_0" Output="my_ros2_datatype_subscriber_1.id"/>
+  <Connection Input="my_ros2_datatype_publisher_1.id" Output="Randint_1.outputInteger"/>
+  <RTBoardView ID="JavaStudio1.0">
+    <ConnectionShape InstanceName="DataViewer_1.input_0" color="0"/>
+    <ConnectionShape InstanceName="my_ros2_datatype_publisher_1.id" color="0"/>
+    <ConnectionShape InstanceName="my_ros_datatype_publisher_1.id" color="0"/>
+  </RTBoardView>
+</RTMapsDiagram>

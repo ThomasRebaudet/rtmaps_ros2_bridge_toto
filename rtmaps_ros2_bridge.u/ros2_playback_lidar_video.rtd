@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RTMapsDiagram version="4.8.0" EngineVersion="4.8" xmlns="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.intempora.com/RTMaps/2011/RTMapsFiles http://www.intempora.com/schemas/RTMaps/2011/RTMapsDiagram.xsd">
+  <RequiredPackages>
+    <File Version="1.0"><![CDATA[/home/thomas/Documents/dev/git/rtmaps-ros2-bridge/rtmaps_ros2_bridge.u/rtmaps-ros2-bridge.pck]]><Relative><![CDATA[%RTMAPS_DIAGRAMDIR%/rtmaps-ros2-bridge.pck]]></Relative></File>
+    <File Version="2.4.9"><![CDATA[/opt/rtmaps/packages/rtmaps_lidar_tools.pck]]><Relative><![CDATA[%RTMAPS_INSTDIR%/packages/rtmaps_lidar_tools.pck]]></Relative></File>
+  </RequiredPackages>
+  <EngineProperties>
+    <Property LongName="Engine.startTimespeed" Type="1">1000</Property>
+    <Property LongName="Engine.startTime" Type="1">0</Property>
+    <Property LongName="Engine.session" Type="3"><![CDATA[unspecified]]></Property>
+    <Property LongName="Engine.recordingAtStart" Type="0">true</Property>
+    <Property LongName="Engine.recording" Type="0">true</Property>
+    <Property LongName="Engine.sequentialStart" Type="0">false</Property>
+    <Property LongName="Engine.shutdownTimeout" Type="1">10000000</Property>
+    <Property LongName="Engine.autoDetectStartTime" Type="0">true</Property>
+    <Property LongName="Engine.coreFunctionsToSaveInDiag" Type="4"><![CDATA[0|-1]]></Property>
+    <Property LongName="Engine.useUTCTimeReference" Type="0">false</Property>
+    <Property LongName="Engine.fastForwardThreshold" Type="1">2000</Property>
+    <Property LongName="Engine.fastRewindThreshold" Type="1">-2000</Property>
+    <Property LongName="Engine.priorityClass" Type="4"><![CDATA[3|0|Shared Time|Preemptive|Auto]]></Property>
+    <Property LongName="Engine.posixTimerThread" Type="4"><![CDATA[3|0|Auto|Timer Interval|Real Time Clock]]></Property>
+    <Property LongName="Engine.posixRealTimeClockIrqFrequency" Type="4"><![CDATA[4|0|1024|2048|4096|8192]]></Property>
+    <Property LongName="Engine.posixPreemptiveSchedulingPolicy" Type="4"><![CDATA[2|0|FIFO|Round Robin]]></Property>
+    <Property LongName="Engine.windowsUsePerformanceCounter" Type="0">true</Property>
+  </EngineProperties>
+  <ClocksManagement>
+    <Property LongName="ClocksManagement.activeClock" Type="4"><![CDATA[2|0|RTMaps_standard_clock|ros_clock_1]]></Property>
+  </ClocksManagement>
+  <Component InstanceName="GL2_3D_Viewer_1" Model="GL2_3D_Viewer" Version="1.56.0" x="1352" y="264" z="0">
+    <Input LongName="GL2_3D_Viewer_1.object_2_data" Name="object_2_data">
+      <Property LongName="GL2_3D_Viewer_1.object_2_data.readerType" Type="1">2</Property>
+      <Property LongName="GL2_3D_Viewer_1.object_2_data.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="GL2_3D_Viewer_1.camera" Name="camera">
+      <Property LongName="GL2_3D_Viewer_1.camera.readerType" Type="1">4</Property>
+      <Property LongName="GL2_3D_Viewer_1.camera.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="GL2_3D_Viewer_1.projectionMatrix" Name="projectionMatrix">
+      <Property LongName="GL2_3D_Viewer_1.projectionMatrix.readerType" Type="1">2</Property>
+      <Property LongName="GL2_3D_Viewer_1.projectionMatrix.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="GL2_3D_Viewer_1.triggerRefresh" Name="triggerRefresh">
+      <Property LongName="GL2_3D_Viewer_1.triggerRefresh.readerType" Type="1">0</Property>
+      <Property LongName="GL2_3D_Viewer_1.triggerRefresh.subsampling" Type="1">1</Property>
+    </Input>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.objects_subsection_begin" Type="3" SubType="256"><![CDATA[Objects]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.nbObjects" Type="1">3</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.object_0_subsection_begin" Type="3" SubType="256"><![CDATA[Object 0]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.object_0_class" Type="1">0</Property>
+    <Property LongName="GL2_3D_Viewer_1.object_0_type" Type="4"><![CDATA[25|13|PointCloud|ColoredPointCloud|PointCloud (to be colorized)|Lines|ColoredLines|Triangles|ColoredTriangles|TexturedTriangles|Quads|ColoredQuads|TexturedQuads|Axis|Cube|Grid|RealObjects|Sphere|TexturedWall|Trajectory|File|Plugin|PolarGrid|Wireframe Cube|PlanarPointCloud|PlanarColoredPointCloud|PlanarPointCloud (to be colorized)]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_0_transform" Type="4"><![CDATA[3|0|Matrix|Position Attitude Scale|Input Matrix]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_0_matrix" Type="3"><![CDATA[1.0 0.0 0.0 0.0
+0.0 1.0 0.0 0.0
+0.0 0.0 1.0 0.0
+0.0 0.0 0.0 1.0
+]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_0_width" Type="2">100</Property>
+    <Property LongName="GL2_3D_Viewer_1.object_0_height" Type="2">100</Property>
+    <Property LongName="GL2_3D_Viewer_1.object_0_padding" Type="2">1</Property>
+    <Property LongName="GL2_3D_Viewer_1.object_0_color" Type="1" SubType="4">0</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.object_0_subsection_end" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.object_1_subsection_begin" Type="3" SubType="256"><![CDATA[Object 1]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.object_1_class" Type="1">0</Property>
+    <Property LongName="GL2_3D_Viewer_1.object_1_type" Type="4"><![CDATA[25|11|PointCloud|ColoredPointCloud|PointCloud (to be colorized)|Lines|ColoredLines|Triangles|ColoredTriangles|TexturedTriangles|Quads|ColoredQuads|TexturedQuads|Axis|Cube|Grid|RealObjects|Sphere|TexturedWall|Trajectory|File|Plugin|PolarGrid|Wireframe Cube|PlanarPointCloud|PlanarColoredPointCloud|PlanarPointCloud (to be colorized)]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_1_transform" Type="4"><![CDATA[3|0|Matrix|Position Attitude Scale|Input Matrix]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_1_matrix" Type="3"><![CDATA[1.0 0.0 0.0 0.0
+0.0 1.0 0.0 0.0
+0.0 0.0 1.0 0.0
+0.0 0.0 0.0 1.0
+]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_1_axis_length" Type="2">1</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.object_1_subsection_end" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.object_2_subsection_begin" Type="3" SubType="256"><![CDATA[Object 2]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.object_2_class" Type="1">0</Property>
+    <Property LongName="GL2_3D_Viewer_1.object_2_type" Type="4"><![CDATA[25|0|PointCloud|ColoredPointCloud|PointCloud (to be colorized)|Lines|ColoredLines|Triangles|ColoredTriangles|TexturedTriangles|Quads|ColoredQuads|TexturedQuads|Axis|Cube|Grid|RealObjects|Sphere|TexturedWall|Trajectory|File|Plugin|PolarGrid|Wireframe Cube|PlanarPointCloud|PlanarColoredPointCloud|PlanarPointCloud (to be colorized)]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_2_transform" Type="4"><![CDATA[3|0|Matrix|Position Attitude Scale|Input Matrix]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_2_matrix" Type="3"><![CDATA[1.0 0.0 0.0 0.0
+0.0 1.0 0.0 0.0
+0.0 0.0 1.0 0.0
+0.0 0.0 0.0 1.0
+]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.object_2_nb_samples" Type="1">1</Property>
+    <Property LongName="GL2_3D_Viewer_1.object_2_color" Type="1" SubType="4">16777215</Property>
+    <Property LongName="GL2_3D_Viewer_1.object_2_size" Type="2">1</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.object_2_subsection_end" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.objects_subsection_end" Type="0" SubType="512">true</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.classes_subsection_begin" Type="3" SubType="256"><![CDATA[Classes]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.classEnabledSource" Type="4"><![CDATA[2|0|Properties|Input]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.nbClasses" Type="1">1</Property>
+    <Property LongName="GL2_3D_Viewer_1.class_0_enabled" Type="0">true</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.classes_subsection_end" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.lighting_subsection_begin" Type="3" SubType="256"><![CDATA[Lighting]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.lighting_model" Type="4"><![CDATA[5|0|Ambient|Diffuse|Phong|BlinnPhong|Gaussian]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.lighting_attenuation" Type="2">9.999999747e-05</Property>
+    <Property LongName="GL2_3D_Viewer_1.lighting_sqr_attenuation" Type="0">false</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.lighting_subsection_end" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.scene_subsection_begin" Type="3" SubType="256"><![CDATA[Scene]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.background_color" Type="1" SubType="4">8388608</Property>
+    <Property LongName="GL2_3D_Viewer_1.wireframe_rendering" Type="0">false</Property>
+    <Property LongName="GL2_3D_Viewer_1.display_axis" Type="0">true</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.scene_subsection_end" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.viewport_subsection_begin" Type="3" SubType="256"><![CDATA[Viewport]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.viewportPlugin" Type="3" SubType="80"><![CDATA[]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.cameraType" Type="4"><![CDATA[7|0|Standard|Anaglyph (red-blue)|Anaglyph (red-cyan)|Anaglyph (red-green)|Anaglyph (blue-red)|Anaglyph (cyan-red)|Anaglyph (green-red)]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.zFocus" Type="2">1</Property>
+    <Property LongName="GL2_3D_Viewer_1.eyeDistance" Type="2">0.009999999776</Property>
+    <Property LongName="GL2_3D_Viewer_1.camera_mode" Type="4"><![CDATA[5|3|Fixed|Key Switcher|Orbiter|Trackball|Input Matrix]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.camera_position" Type="3"><![CDATA[-10.0 0.0 10.0]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.camera_look_at" Type="3"><![CDATA[10.0 0.0 0.0]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.camera_up" Type="3"><![CDATA[0.0 0.0 1.0]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.camera_target" Type="1">0</Property>
+    <Property LongName="GL2_3D_Viewer_1.projection" Type="4"><![CDATA[3|0|Perspective|Orthogonal|Input Matrix]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.zNear" Type="2">1</Property>
+    <Property LongName="GL2_3D_Viewer_1.zFar" Type="2">10000</Property>
+    <Property LongName="GL2_3D_Viewer_1.fovy" Type="2">45</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.viewport_subsection_end" Type="0" SubType="512">false</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.window_subsection_begin" Type="3" SubType="256"><![CDATA[Window]]></ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.title" Type="3"><![CDATA[]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.left" Type="1">1112</Property>
+    <Property LongName="GL2_3D_Viewer_1.top" Type="1">234</Property>
+    <Property LongName="GL2_3D_Viewer_1.width" Type="1">640</Property>
+    <Property LongName="GL2_3D_Viewer_1.height" Type="1">480</Property>
+    <Property LongName="GL2_3D_Viewer_1.windowBackend" Type="4"><![CDATA[2|0|XCB|Xlib]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.sequentialRender" Type="0">false</Property>
+    <Property LongName="GL2_3D_Viewer_1.keepWindowAspectRatio" Type="0">true</Property>
+    <Property LongName="GL2_3D_Viewer_1.updateWinGeomOnDeath" Type="0">true</Property>
+    <Property LongName="GL2_3D_Viewer_1.alwaysOnTop" Type="0">true</Property>
+    <Property LongName="GL2_3D_Viewer_1.fullscreen" Type="0">false</Property>
+    <Property LongName="GL2_3D_Viewer_1.monitorForFullscreen" Type="4"><![CDATA[1|0|0 (0, 0, 1920, 1080)]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.onscreen" Type="0">true</Property>
+    <Property LongName="GL2_3D_Viewer_1.offscreen" Type="0">false</Property>
+    <Property LongName="GL2_3D_Viewer_1.antialiasing" Type="4"><![CDATA[5|0|None|FSAA 2x|FSAA 4x|FSAA 8x|FSAA 16x]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.displayTitleBar" Type="0">true</Property>
+    <Property LongName="GL2_3D_Viewer_1.displayBorders" Type="0">true</Property>
+    <Property LongName="GL2_3D_Viewer_1.refresh_mode" Type="4"><![CDATA[3|0|Fixed|On Demand|Input based]]></Property>
+    <Property LongName="GL2_3D_Viewer_1.refresh_period" Type="1">50000</Property>
+    <Property LongName="GL2_3D_Viewer_1.verbose" Type="0">false</Property>
+    <ReadOnlyProperty LongName="GL2_3D_Viewer_1.window_subsection_end" Type="0" SubType="512">false</ReadOnlyProperty>
+    <Property LongName="GL2_3D_Viewer_1.threaded" Type="0">true</Property>
+    <Property LongName="GL2_3D_Viewer_1.priority" Type="1">128</Property>
+    <Property LongName="GL2_3D_Viewer_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="ImageViewer_1" Model="ImageViewer" Version="7.10.4" x="1064" y="32" z="0">
+    <Input LongName="ImageViewer_1.input" Name="input">
+      <Property LongName="ImageViewer_1.input.readerType" Type="1">2</Property>
+      <Property LongName="ImageViewer_1.input.subsampling" Type="1">1</Property>
+    </Input>
+    <Input LongName="ImageViewer_1.iDrawingObjects" Name="iDrawingObjects">
+      <Property LongName="ImageViewer_1.iDrawingObjects.readerType" Type="1">2</Property>
+      <Property LongName="ImageViewer_1.iDrawingObjects.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="ImageViewer_1.mouseClick" Name="mouseClick">
+      <Property LongName="ImageViewer_1.mouseClick.subsampling" Type="1">1</Property>
+      <Property LongName="ImageViewer_1.mouseClick.fifosize" Type="1">16</Property>
+      <Property LongName="ImageViewer_1.mouseClick.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="ImageViewer_1.keyPress" Name="keyPress">
+      <Property LongName="ImageViewer_1.keyPress.subsampling" Type="1">1</Property>
+      <Property LongName="ImageViewer_1.keyPress.fifosize" Type="1">16</Property>
+      <Property LongName="ImageViewer_1.keyPress.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="ImageViewer_1.title" Type="3"><![CDATA[Image Viewer]]></Property>
+    <Property LongName="ImageViewer_1.x" Type="1">-10</Property>
+    <Property LongName="ImageViewer_1.y" Type="1">19</Property>
+    <Property LongName="ImageViewer_1.width" Type="1">384</Property>
+    <Property LongName="ImageViewer_1.height" Type="1">288</Property>
+    <Property LongName="ImageViewer_1.autoResize" Type="0">true</Property>
+    <Property LongName="ImageViewer_1.imagePriority" Type="0">false</Property>
+    <Property LongName="ImageViewer_1.accumulateDrawingObjects" Type="0">false</Property>
+    <Property LongName="ImageViewer_1.updateGeometryOnDeath" Type="0">true</Property>
+    <Property LongName="ImageViewer_1.alwaysOnTop" Type="0">false</Property>
+    <Property LongName="ImageViewer_1.displayBorder" Type="0">true</Property>
+    <Property LongName="ImageViewer_1.threaded" Type="0">true</Property>
+    <Property LongName="ImageViewer_1.priority" Type="1">0</Property>
+    <Property LongName="ImageViewer_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="laser_scan_to_xyz_points_10" Model="laser_scan_to_xyz_points" Version="1.4" x="1056" y="264" z="0">
+    <Input LongName="laser_scan_to_xyz_points_10.dist_points" Name="dist_points">
+      <Property LongName="laser_scan_to_xyz_points_10.dist_points.readerType" Type="1">0</Property>
+      <Property LongName="laser_scan_to_xyz_points_10.dist_points.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="laser_scan_to_xyz_points_10.xyz_points" Name="xyz_points">
+      <Property LongName="laser_scan_to_xyz_points_10.xyz_points.subsampling" Type="1">1</Property>
+      <Property LongName="laser_scan_to_xyz_points_10.xyz_points.fifosize" Type="1">16</Property>
+      <Property LongName="laser_scan_to_xyz_points_10.xyz_points.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="laser_scan_to_xyz_points_10.min_angle_deg" Type="2">-90</Property>
+    <Property LongName="laser_scan_to_xyz_points_10.max_angle_deg" Type="2">90</Property>
+    <Property LongName="laser_scan_to_xyz_points_10.height" Type="2">0</Property>
+    <Property LongName="laser_scan_to_xyz_points_10.scale" Type="2">1</Property>
+    <Property LongName="laser_scan_to_xyz_points_10.output_type" Type="4"><![CDATA[2|0|XYZ|XYZRGB (Coloured points)]]></Property>
+    <Property LongName="laser_scan_to_xyz_points_10.threaded" Type="0">true</Property>
+    <Property LongName="laser_scan_to_xyz_points_10.priority" Type="1">128</Property>
+    <Property LongName="laser_scan_to_xyz_points_10.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="numbers_converter_8" Model="numbers_converter" Version="1.1.3" x="240" y="272" z="0">
+    <Input LongName="numbers_converter_8.input" Name="input">
+      <Property LongName="numbers_converter_8.input.readerType" Type="1">0</Property>
+      <Property LongName="numbers_converter_8.input.subsampling" Type="1">1</Property>
+    </Input>
+    <Output LongName="numbers_converter_8.output" Name="output">
+      <Property LongName="numbers_converter_8.output.subsampling" Type="1">1</Property>
+      <Property LongName="numbers_converter_8.output.fifosize" Type="1">16</Property>
+      <Property LongName="numbers_converter_8.output.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="numbers_converter_8.outputType" Type="4"><![CDATA[4|3|Integer32|Integer64|Float32|Float64]]></Property>
+    <Property LongName="numbers_converter_8.threaded" Type="0">false</Property>
+    <Property LongName="numbers_converter_8.priority" Type="1">128</Property>
+    <Property LongName="numbers_converter_8.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="Player_7" Model="Player" Version="2.15.0" x="40" y="32" z="0">
+    <Output LongName="Player_7.CropAndDecimate_2.output" Name="CropAndDecimate_2.output">
+      <Property LongName="Player_7.CropAndDecimate_2.output.subsampling" Type="1">1</Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.fifosize" Type="1">16</Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.periodic" Type="0">false</Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.replayPath" Type="3" SubType="96"><![CDATA[]]></Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.fastReplayPath" Type="3" SubType="96"><![CDATA[]]></Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.replayMode" Type="4"><![CDATA[3|0|Normal|Immediate|Timestamp]]></Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.autopause" Type="0">false</Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.threaded" Type="0">true</Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.priority" Type="1">128</Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.replayThreadPriority" Type="1">128</Property>
+      <Property LongName="Player_7.CropAndDecimate_2.output.spatialSubsampling" Type="1">1</Property>
+    </Output>
+    <Output LongName="Player_7.lms.output" Name="lms.output">
+      <Property LongName="Player_7.lms.output.subsampling" Type="1">1</Property>
+      <Property LongName="Player_7.lms.output.fifosize" Type="1">16</Property>
+      <Property LongName="Player_7.lms.output.periodic" Type="0">false</Property>
+      <Property LongName="Player_7.lms.output.replayPath" Type="3" SubType="96"><![CDATA[]]></Property>
+      <Property LongName="Player_7.lms.output.fastReplayPath" Type="3" SubType="96"><![CDATA[]]></Property>
+      <Property LongName="Player_7.lms.output.replayMode" Type="4"><![CDATA[3|0|Normal|Immediate|Timestamp]]></Property>
+      <Property LongName="Player_7.lms.output.autopause" Type="0">false</Property>
+      <Property LongName="Player_7.lms.output.threaded" Type="0">false</Property>
+      <Property LongName="Player_7.lms.output.priority" Type="1">128</Property>
+      <Property LongName="Player_7.lms.output.replayThreadPriority" Type="1">128</Property>
+    </Output>
+    <Output LongName="Player_7.busCAN.output" Name="busCAN.output">
+      <Property LongName="Player_7.busCAN.output.subsampling" Type="1">1</Property>
+      <Property LongName="Player_7.busCAN.output.fifosize" Type="1">16</Property>
+      <Property LongName="Player_7.busCAN.output.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="Player_7.file" Type="3" SubType="80"><![CDATA[/opt/rtmaps/samples/databases/demo_lidar/RecFile_3_20030919_113204.rec]]><Relative><![CDATA[%RTMAPS_INSTDIR%/samples/databases/demo_lidar/RecFile_3_20030919_113204.rec]]></Relative></Property>
+    <Property LongName="Player_7.offset" Type="1">0</Property>
+    <Property LongName="Player_7.beginning" Type="1">0</Property>
+    <Property LongName="Player_7.end" Type="1">0</Property>
+    <Property LongName="Player_7.timelag" Type="1">100000</Property>
+    <Property LongName="Player_7.update" Type="0">true</Property>
+    <ReadOnlyProperty LongName="Player_7.replayPath" Type="3"><![CDATA[/opt/rtmaps/samples/databases/demo_lidar/]]></ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Player_7.comments" Type="3"><![CDATA[]]></ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Player_7.ahead" Type="1">240042</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Player_7.percentage" Type="1">0</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Player_7.time" Type="1">0</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Player_7.first" Type="1">73000</ReadOnlyProperty>
+    <ReadOnlyProperty LongName="Player_7.last" Type="1">99997000</ReadOnlyProperty>
+    <Property LongName="Player_7.serverThreadPriority" Type="1">200</Property>
+    <Property LongName="Player_7.mainClientThreadPriority" Type="1">200</Property>
+    <Property LongName="Player_7.threaded" Type="0">true</Property>
+    <Property LongName="Player_7.priority" Type="1">200</Property>
+    <Property LongName="Player_7.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="ros2_topic_publisher_1" Model="ros2_topic_publisher" Version="1.0" x="512" y="32" z="0">
+    <Input LongName="ros2_topic_publisher_1.input_image" Name="input_image">
+      <Property LongName="ros2_topic_publisher_1.input_image.readerType" Type="1">0</Property>
+      <Property LongName="ros2_topic_publisher_1.input_image.subsampling" Type="1">1</Property>
+    </Input>
+    <Property LongName="ros2_topic_publisher_1.topic_name" Type="3"><![CDATA[rtmaps/ros_topic_name]]></Property>
+    <Property LongName="ros2_topic_publisher_1.topic_type" Type="4"><![CDATA[9|1|std_msgs|sensor_msgs|geometry_msgs|nav_msgs|stereo_msgs|trajectory_msgs|visualization_msgs|actionlib_msgs|diagnostic_msgs]]></Property>
+    <Property LongName="ros2_topic_publisher_1.frame_id" Type="3"><![CDATA[map]]></Property>
+    <Property LongName="ros2_topic_publisher_1.message" Type="4"><![CDATA[15|1|CompressedImage|Image|Imu|JointState|Joy|JoyFeedback|JoyFeedbackArray|LaserScan|NavSatFix|NavSatStatus|PointCloud|PointCloud2|PointField|Range|RegionOfInterest]]></Property>
+    <Property LongName="ros2_topic_publisher_1.published_timestamps" Type="4"><![CDATA[2|1|RTMaps samples timestamps|ROS current time]]></Property>
+    <Property LongName="ros2_topic_publisher_1.threaded" Type="0">true</Property>
+    <Property LongName="ros2_topic_publisher_1.priority" Type="1">128</Property>
+    <Property LongName="ros2_topic_publisher_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="ros2_topic_publisher_2" Model="ros2_topic_publisher" Version="1.0" x="512" y="272" z="0">
+    <Input LongName="ros2_topic_publisher_2.input_laser_scan_ranges" Name="input_laser_scan_ranges">
+      <Property LongName="ros2_topic_publisher_2.input_laser_scan_ranges.readerType" Type="1">0</Property>
+      <Property LongName="ros2_topic_publisher_2.input_laser_scan_ranges.subsampling" Type="1">1</Property>
+    </Input>
+    <Property LongName="ros2_topic_publisher_2.topic_name" Type="3"><![CDATA[lidar]]></Property>
+    <Property LongName="ros2_topic_publisher_2.topic_type" Type="4"><![CDATA[9|1|std_msgs|sensor_msgs|geometry_msgs|nav_msgs|stereo_msgs|trajectory_msgs|visualization_msgs|actionlib_msgs|diagnostic_msgs]]></Property>
+    <Property LongName="ros2_topic_publisher_2.frame_id" Type="3"><![CDATA[map]]></Property>
+    <Property LongName="ros2_topic_publisher_2.message" Type="4"><![CDATA[15|7|CompressedImage|Image|Imu|JointState|Joy|JoyFeedback|JoyFeedbackArray|LaserScan|NavSatFix|NavSatStatus|PointCloud|PointCloud2|PointField|Range|RegionOfInterest]]></Property>
+    <Property LongName="ros2_topic_publisher_2.laser_min_angle" Type="2">-135</Property>
+    <Property LongName="ros2_topic_publisher_2.laser_max_angle" Type="2">135</Property>
+    <Property LongName="ros2_topic_publisher_2.laser_angle_increment" Type="2">1</Property>
+    <Property LongName="ros2_topic_publisher_2.laser_time_increment" Type="2">0</Property>
+    <Property LongName="ros2_topic_publisher_2.laser_scan_time" Type="2">0</Property>
+    <Property LongName="ros2_topic_publisher_2.laser_min_range" Type="2">0</Property>
+    <Property LongName="ros2_topic_publisher_2.laser_max_range" Type="2">100</Property>
+    <Property LongName="ros2_topic_publisher_2.laser_supports_intensities" Type="0">false</Property>
+    <Property LongName="ros2_topic_publisher_2.published_timestamps" Type="4"><![CDATA[2|1|RTMaps samples timestamps|ROS current time]]></Property>
+    <Property LongName="ros2_topic_publisher_2.threaded" Type="0">true</Property>
+    <Property LongName="ros2_topic_publisher_2.priority" Type="1">128</Property>
+    <Property LongName="ros2_topic_publisher_2.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="ros2_topic_subscriber_1" Model="ros2_topic_subscriber" Version="1.0" x="696" y="32" z="0">
+    <Output LongName="ros2_topic_subscriber_1.output_image" Name="output_image">
+      <Property LongName="ros2_topic_subscriber_1.output_image.subsampling" Type="1">1</Property>
+      <Property LongName="ros2_topic_subscriber_1.output_image.fifosize" Type="1">10</Property>
+      <Property LongName="ros2_topic_subscriber_1.output_image.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="ros2_topic_subscriber_1.topic_name" Type="3"><![CDATA[rtmaps/ros_topic_name]]></Property>
+    <Property LongName="ros2_topic_subscriber_1.topic_type" Type="4"><![CDATA[9|1|std_msgs|sensor_msgs|geometry_msgs|nav_msgs|stereo_msgs|trajectory_msgs|visualization_msgs|actionlib_msgs|diagnostic_msgs]]></Property>
+    <Property LongName="ros2_topic_subscriber_1.message" Type="4"><![CDATA[15|1|CompressedImage|Image|Imu|JointState|Joy|JoyFeedback|JoyFeedbackArray|LaserScan|NavSatFix|NavSatStatus|PointCloud|PointCloud2|PointField|Range|RegionOfInterest]]></Property>
+    <Property LongName="ros2_topic_subscriber_1.subscribe_queue_size" Type="1">-1</Property>
+    <Property LongName="ros2_topic_subscriber_1.transfer_ROS_timestamps" Type="0">true</Property>
+    <Property LongName="ros2_topic_subscriber_1.threaded" Type="0">true</Property>
+    <Property LongName="ros2_topic_subscriber_1.priority" Type="1">128</Property>
+    <Property LongName="ros2_topic_subscriber_1.autoStart" Type="0">true</Property>
+  </Component>
+  <Component InstanceName="ros2_topic_subscriber_2" Model="ros2_topic_subscriber" Version="1.0" x="696" y="264" z="0">
+    <Output LongName="ros2_topic_subscriber_2.output_laser_scan_ranges" Name="output_laser_scan_ranges">
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_ranges.subsampling" Type="1">1</Property>
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_ranges.fifosize" Type="1">16</Property>
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_ranges.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="ros2_topic_subscriber_2.output_laser_scan_intensities" Name="output_laser_scan_intensities">
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_intensities.subsampling" Type="1">1</Property>
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_intensities.fifosize" Type="1">16</Property>
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_intensities.periodic" Type="0">false</Property>
+    </Output>
+    <Output LongName="ros2_topic_subscriber_2.output_laser_scan_info" Name="output_laser_scan_info">
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_info.subsampling" Type="1">1</Property>
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_info.fifosize" Type="1">16</Property>
+      <Property LongName="ros2_topic_subscriber_2.output_laser_scan_info.periodic" Type="0">false</Property>
+    </Output>
+    <Property LongName="ros2_topic_subscriber_2.topic_name" Type="3"><![CDATA[lidar]]></Property>
+    <Property LongName="ros2_topic_subscriber_2.topic_type" Type="4"><![CDATA[9|1|std_msgs|sensor_msgs|geometry_msgs|nav_msgs|stereo_msgs|trajectory_msgs|visualization_msgs|actionlib_msgs|diagnostic_msgs]]></Property>
+    <Property LongName="ros2_topic_subscriber_2.message" Type="4"><![CDATA[15|7|CompressedImage|Image|Imu|JointState|Joy|JoyFeedback|JoyFeedbackArray|LaserScan|NavSatFix|NavSatStatus|PointCloud|PointCloud2|PointField|Range|RegionOfInterest]]></Property>
+    <Property LongName="ros2_topic_subscriber_2.subscribe_queue_size" Type="1">-1</Property>
+    <Property LongName="ros2_topic_subscriber_2.laser_discard_out_or_range_data" Type="0">false</Property>
+    <Property LongName="ros2_topic_subscriber_2.transfer_ROS_timestamps" Type="0">true</Property>
+    <Property LongName="ros2_topic_subscriber_2.threaded" Type="0">true</Property>
+    <Property LongName="ros2_topic_subscriber_2.priority" Type="1">128</Property>
+    <Property LongName="ros2_topic_subscriber_2.autoStart" Type="0">true</Property>
+  </Component>
+  <Connection Output="laser_scan_to_xyz_points_10.xyz_points" Input="GL2_3D_Viewer_1.object_2_data"/>
+  <Connection Output="ros2_topic_subscriber_1.output_image" Input="ImageViewer_1.input"/>
+  <Connection Output="ros2_topic_subscriber_2.output_laser_scan_ranges" Input="laser_scan_to_xyz_points_10.dist_points"/>
+  <Connection Output="Player_7.lms.output" Input="numbers_converter_8.input">
+    <Replay Method="mfile"/>
+  </Connection>
+  <Connection Output="Player_7.CropAndDecimate_2.output" Input="ros2_topic_publisher_1.input_image">
+    <Replay Method="jseq"/>
+  </Connection>
+  <Connection Output="numbers_converter_8.output" Input="ros2_topic_publisher_2.input_laser_scan_ranges"/>
+  <RTBoardView ID="JavaStudio1.0">
+    <ComponentBox InstanceName="DataInfos_1_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="laser_scan_to_xyz_points_10" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="numbers_converter_8" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="osg_viewer_11" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="Player_7" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="ros_clock_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="ros_topic_publisher_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="ros_topic_publisher_2" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="ros_topic_publisher_6" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="ros_topic_subscriber_1" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="ros_topic_subscriber_3" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ComponentBox InstanceName="ros_topic_subscriber_9" reversed="false">
+      <Description/>
+    </ComponentBox>
+    <ConnectionShape InstanceName="GL2_3D_Viewer_1.object_2_data" color="0"/>
+    <ConnectionShape InstanceName="GL2_3D_Viewer_2.object_0_data" color="0"/>
+    <ConnectionShape InstanceName="ImageViewer_1.input" color="0"/>
+    <ConnectionShape InstanceName="laser_scan_to_xyz_points_10.dist_points" color="0"/>
+    <ConnectionShape InstanceName="laser_scan_to_xyz_points_2.dist_points" color="0"/>
+    <ConnectionShape InstanceName="numbers_converter_2.input" color="0"/>
+    <ConnectionShape InstanceName="numbers_converter_8.input" color="0"/>
+    <ConnectionShape InstanceName="osg_viewer_11.input_XYZ" color="0"/>
+    <ConnectionShape InstanceName="ros2_topic_publisher_1.input_image" color="0"/>
+    <ConnectionShape InstanceName="ros2_topic_publisher_1.input_pointcloud_xyz" color="0"/>
+    <ConnectionShape InstanceName="ros2_topic_publisher_2.input_laser_scan_ranges" color="0"/>
+    <ConnectionShape InstanceName="ros_topic_publisher_1.input_pointcloud_xyz" color="0"/>
+    <ConnectionShape InstanceName="ros_topic_publisher_2.input_image" color="0"/>
+    <ConnectionShape InstanceName="ros_topic_publisher_6.input_laser_scan_ranges" color="0"/>
+  </RTBoardView>
+</RTMapsDiagram>
