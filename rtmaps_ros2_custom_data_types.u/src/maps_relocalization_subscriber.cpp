@@ -73,7 +73,7 @@ void MAPSrelocalization_subscriber::Birth()
     try
     {
     queue_size = queue_size == -1?1000:queue_size;
-    m_sub = m_n->create_subscription<my_data_type::msg::Relocalization>(topic_name.Beginning(), queue_size, std::bind(&MAPSrelocalization_subscriber::ROSDataReceivedCallback, this, std::placeholders::_1));
+    m_sub = m_n->create_subscription<my_data_type::msg::Reloc>(topic_name.Beginning(), queue_size, std::bind(&MAPSrelocalization_subscriber::ROSDataReceivedCallback, this, std::placeholders::_1));
     }
     catch (std::exception& e)
     {
@@ -88,7 +88,7 @@ void MAPSrelocalization_subscriber::Birth()
 	}
 }
 
-void MAPSrelocalization_subscriber::ROSDataReceivedCallback(const my_data_type::msg::Relocalization& message)
+void MAPSrelocalization_subscriber::ROSDataReceivedCallback(const my_data_type::msg::Reloc& message)
 {
     try 
     {

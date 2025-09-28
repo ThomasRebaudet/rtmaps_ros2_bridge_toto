@@ -25,7 +25,8 @@ private :
     rclcpp::PublisherBase::SharedPtr        m_pub;
 
 
-    std::vector<MAPSIOElt*>         m_inputs;  // Ajouter cette ligne
+    MAPSInput* m_inputs[NB_INPUTS];
+    MAPSIOElt* m_ioelts[NB_INPUTS];
 
     bool                            m_first_time;
     int                             m_count;

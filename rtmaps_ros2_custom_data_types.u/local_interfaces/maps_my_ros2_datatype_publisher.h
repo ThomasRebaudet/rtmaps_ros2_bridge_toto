@@ -10,7 +10,7 @@
 #include "maps_corefunction.h"
 #include "maps_ros2_bridge_core_function_interface.h"
 #include "maps_ros2_utils.h"
-#include "my_data_type/msg/my_data_type.hpp"
+#include "my_data_type/msg/relocalization.hpp"
 
 // Declares a new MAPSComponent child class
 class MAPSmy_ros2_datatype_publisher : public MAPSComponent
@@ -25,12 +25,14 @@ private :
 
 
     MAPSIOElt*                      m_ioeltin;
+    MAPSIOElt*                      m_ioeltin2;
+    MAPSIOElt*                      m_ioeltin3;
 
     bool                            m_first_time;
     int                             m_count;
 	bool				            m_publish_rtmaps_timestamp;
 	std_msgs::msg::Header 	        m_header; //!< ROS header
-    my_data_type::msg::MyDataType   m_my_data_type;
+    my_data_type::msg::Relocalization   m_my_data_type;
 
     void PublishMyMsg();
 

@@ -10,7 +10,16 @@
 
 // Use the macros to declare the inputs
 MAPS_BEGIN_INPUTS_DEFINITION(MAPSmy_ros2_datatype_publisher)
-    MAPS_INPUT("id",MAPS::FilterInteger32,MAPS::FifoReader)
+    MAPS_INPUT("timestamp", MAPS::FilterOneFloat64, MAPS::FifoReader)
+    MAPS_INPUT("state", MAPS::FilterOneUnsignedInteger8, MAPS::FifoReader)
+    MAPS_INPUT("state_human_readable", MAPS::FilterTextUTF8, MAPS::FifoReader)
+    MAPS_INPUT("pose", MAPS::FilterMatrix, MAPS::FifoReader)
+    MAPS_INPUT("pose_cov", MAPS::FilterMatrix, MAPS::FifoReader)
+    MAPS_INPUT("pose_std", MAPS::FilterFloats32, MAPS::FifoReader)
+    MAPS_INPUT("lla", MAPS::FilterFloats64, MAPS::FifoReader)
+    MAPS_INPUT("velocity", MAPS::FilterFloats32, MAPS::FifoReader)
+    MAPS_INPUT("twist", MAPS::FilterFloats32, MAPS::FifoReader)
+    MAPS_INPUT("overlap", MAPS::FilterOneFloat32, MAPS::FifoReader)
 MAPS_END_INPUTS_DEFINITION
 
 // Use the macros to declare the outputs
@@ -71,7 +80,7 @@ void MAPSmy_ros2_datatype_publisher::Birth()
     {
         m_publish_rtmaps_timestamp = false;
     }
-    m_pub = m_n->create_publisher< my_data_type::msg::MyDataType >((const char*)topic_name, 100);
+    m_pub = m_n->create_publisher< my_data_type::msg::Relocalization >((const char*)topic_name, 100);
 
 	m_count = 0;
 }
@@ -80,6 +89,16 @@ void MAPSmy_ros2_datatype_publisher::Core()
 {
 	MAPSTimestamp t;
     m_ioeltin = StartReading(Input(0));
+    if (m_ioeltin == nullptr)
+        return;
+    t = m_ioeltin->Timestamp();
+
+    m_ioeltin2 = StartReading(Input(1));
+    if (m_ioeltin == nullptr)
+        return;
+    t = m_ioeltin->Timestamp();
+
+    m_ioeltin2 = StartReading(Input(3));
     if (m_ioeltin == nullptr)
         return;
     t = m_ioeltin->Timestamp();
@@ -98,10 +117,14 @@ void MAPSmy_ros2_datatype_publisher::Core()
 
 void MAPSmy_ros2_datatype_publisher::PublishMyMsg()
 {
-    using el_typo = my_data_type::msg::MyDataType;
+    using el_typo = my_data_type::msg::Relocalization;
     auto msg = std::make_unique< el_typo >();
-    msg->id = m_ioeltin->Integer32();
+    msg->state = *m_ioeltin->Stream8();
     msg->header = m_header;
+    msg->state_human_readable = (const char*)m_ioeltin2->Text();
+
+    MAPSMatrix matrix = m_ioeltin3->Matrix();  // Supposons que Matrix() retourne un objet MAPSMatrix
+    //msg->pose = matrix.pr;
 
     auto p = (rclcpp::Publisher < el_typo > *) m_pub.get();
     p->publish(std::move(msg));

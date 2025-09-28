@@ -6,11 +6,15 @@
 // Purpose of this module :
 ////////////////////////////////
 
+
+#define NB_INPUTS 15
+
 #include "maps_relocalization_publisher.h"	// Includes the header of this component
 
 
 // Use the macros to declare the inputs
 MAPS_BEGIN_INPUTS_DEFINITION(MAPSrelocalization_publisher)
+    MAPS_INPUT("timestamp", MAPS::FilterOneFloat64, MAPS::FifoReader)
     MAPS_INPUT("state", MAPS::FilterOneUnsignedInteger8, MAPS::FifoReader)
     MAPS_INPUT("state_human_readable", MAPS::FilterTextUTF8, MAPS::FifoReader)
     MAPS_INPUT("pose", MAPS::FilterMatrix, MAPS::FifoReader)
@@ -20,6 +24,12 @@ MAPS_BEGIN_INPUTS_DEFINITION(MAPSrelocalization_publisher)
     MAPS_INPUT("velocity", MAPS::FilterFloats32, MAPS::FifoReader)
     MAPS_INPUT("twist", MAPS::FilterFloats32, MAPS::FifoReader)
     MAPS_INPUT("overlap", MAPS::FilterOneFloat32, MAPS::FifoReader)
+    MAPS_INPUT("overlap_static", MAPS::FilterOneFloat32, MAPS::FifoReader)
+    MAPS_INPUT("processing_time", MAPS::FilterOneFloat32, MAPS::FifoReader)
+    MAPS_INPUT("distance_to_map", MAPS::FilterOneFloat32, MAPS::FifoReader)
+    MAPS_INPUT("num_pts_frame", MAPS::FilterOneInteger32, MAPS::FifoReader)
+    MAPS_INPUT("num_pts_icp", MAPS::FilterOneInteger32, MAPS::FifoReader)
+    //Adapt the above #define NB_INPUTS if you change the number of inputs.
 MAPS_END_INPUTS_DEFINITION
 
 // Use the macros to declare the outputs
@@ -32,6 +42,7 @@ MAPS_BEGIN_PROPERTIES_DEFINITION(MAPSrelocalization_publisher)
     MAPS_PROPERTY("topic_name","rtmaps/ros_topic_name",false,false)
     MAPS_PROPERTY_ENUM("published_timestamps","RTMaps samples timestamps|ROS current time",1,false,false)
     MAPS_PROPERTY("frame_id","map",false,false)
+    MAPS_PROPERTY_SUBTYPE("inputs_synch_tolerance",100000,false,false,MAPS::PropertySubTypeTime)
 MAPS_END_PROPERTIES_DEFINITION
 
 // Use the macros to declare the actions
@@ -96,14 +107,18 @@ void MAPSrelocalization_publisher::Birth()
 
 	//m_nbInputs = countInputs();
     
+    for (int i=0; i<NB_INPUTS; i++)
+    {
+        m_inputs[i] = &Input(i);
+    }
+
     m_count = 0;
 }
 
 void MAPSrelocalization_publisher::Core()
 {
-    MAPSTimestamp t;
-    
     // Initialiser le vecteur avec tous les inputs
+    /*
     m_inputs.clear();
     for(int i = 0; i < 9; i++) {
         MAPSInput& a = Input(i);
@@ -113,9 +128,15 @@ void MAPSrelocalization_publisher::Core()
         }
         m_inputs.push_back(ioelt);
     }
+    */
+
 
     // Utiliser le timestamp du premier input
-    t = m_inputs[0]->Timestamp();
+    //t = m_inputs[0]->Timestamp();
+
+    MAPSTimestamp t = SynchroStartReading(NB_INPUTS,m_inputs,m_ioelts, GetIntegerProperty(3));
+    if (t == -1)
+        return;
 
     MAPSString frame_id = (const char*)GetStringProperty("frame_id");
     m_header.frame_id = frame_id.Len() > 0 ? (const char*)frame_id : (const char*)this->Name();
@@ -128,7 +149,7 @@ void MAPSrelocalization_publisher::Core()
 
     // Libérer tous les inputs
     
-    m_inputs.clear();
+    //m_inputs.clear();
 
     m_count++;
 }
@@ -139,26 +160,34 @@ void MAPSrelocalization_publisher::PublishMyMsg()
     auto msg = std::make_unique<el_typo>();
     
     // Correct access to input data
-    msg->state = m_inputs[0]->Integer32();  // For FilterOneUnsignedInteger8
-    msg->state_human_readable = m_inputs[1]->Text();  // For FilterTextUTF8
+    msg->timestamp = m_ioelts[0]->Float64();  // For FilterOneFloat64
+    msg->state = m_ioelts[1]->Stream8()[0];  // For FilterUnsignedInteger8
+    msg->state_human_readable = m_ioelts[2]->Text();  // For FilterTextUTF8
 
     // For arrays, use Float64() and Float32() with & operator to get address
-    const double* pose_ptr = &m_inputs[2]->Float64(0);
-    const double* pose_cov_ptr = &m_inputs[3]->Float64(0);
-    const float* pose_std_ptr = &m_inputs[4]->Float32(0);
-    const double* lla_ptr = &m_inputs[5]->Float64(0);
-    const float* velocity_ptr = &m_inputs[6]->Float32(0);
-    const float* twist_ptr = &m_inputs[7]->Float32(0);
+    MAPSMatrix& pose_mtrx = m_ioelts[3]->Matrix();
+    MAPSMatrix& pose_cov = m_ioelts[4]->Matrix();
+    const float* pose_std_ptr = &m_ioelts[5]->Float32(0);
+    const double* lla_ptr = &m_ioelts[6]->Float64(0);
+    const float* velocity_ptr = &m_ioelts[7]->Float32(0);
+    const float* twist_ptr = &m_ioelts[8]->Float32(0);
+
 
     // Copy data using memcpy with proper pointers
-    memcpy(msg->pose.data(), pose_ptr, 16 * sizeof(double));
-    memcpy(msg->pose_cov.data(), pose_cov_ptr, 36 * sizeof(double));
+    memcpy(msg->pose.data(), pose_mtrx.pr, 16 * sizeof(double));
+    memcpy(msg->pose_cov.data(), pose_cov.pr, 36 * sizeof(double));
     memcpy(msg->pose_std.data(), pose_std_ptr, 6 * sizeof(float));
-    memcpy(msg->lla.data(), lla_ptr, 3 * sizeof(float));
+    memcpy(msg->lla.data(), lla_ptr, 3 * sizeof(double));
     memcpy(msg->velocity.data(), velocity_ptr, 6 * sizeof(float));
     memcpy(msg->twist.data(), twist_ptr, 6 * sizeof(float));
     
-    msg->overlap = m_inputs[8]->Float32();
+    msg->overlap = m_ioelts[9]->Float32();
+    msg->overlap_static = m_ioelts[10]->Float32();
+    msg->processing_time = m_ioelts[11]->Float32();
+    msg->distance_to_map = m_ioelts[12]->Float32();
+    msg->num_pts_frame = m_ioelts[13]->Integer32();
+    msg->num_pts_icp = m_ioelts[14]->Integer32();   
+
     msg->header = m_header;
 
     auto p = (rclcpp::Publisher<el_typo>*) m_pub.get();

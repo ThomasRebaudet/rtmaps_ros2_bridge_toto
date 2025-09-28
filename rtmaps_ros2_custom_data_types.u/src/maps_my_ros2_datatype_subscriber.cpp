@@ -64,7 +64,7 @@ void MAPSmy_ros2_datatype_subscriber::Birth()
     try
     {
     queue_size = queue_size == -1?1000:queue_size;
-    m_sub = m_n->create_subscription<my_data_type::msg::MyDataType>(topic_name.Beginning(), queue_size, std::bind(&MAPSmy_ros2_datatype_subscriber::ROSDataReceivedCallback, this, std::placeholders::_1));
+    m_sub = m_n->create_subscription<my_data_type::msg::Relocalization>(topic_name.Beginning(), queue_size, std::bind(&MAPSmy_ros2_datatype_subscriber::ROSDataReceivedCallback, this, std::placeholders::_1));
     }
     catch (std::exception& e)
     {
@@ -79,14 +79,14 @@ void MAPSmy_ros2_datatype_subscriber::Birth()
 	}
 }
 
-void MAPSmy_ros2_datatype_subscriber::ROSDataReceivedCallback(const my_data_type::msg::MyDataType& message)
+void MAPSmy_ros2_datatype_subscriber::ROSDataReceivedCallback(const my_data_type::msg::Relocalization& message)
 {
     try 
     {
         MAPSTimestamp t = MAPS::CurrentTime();
 
         MAPSIOElt* ioeltout = StartWriting(Output(0));
-        ioeltout->Integer32() = message.id;
+        ioeltout->Integer32() = message.state;
         if (m_transfer_ros_timestamp) 
         {
             ioeltout->Timestamp() = MAPSRos2Utils::ROSTimeToMAPSTimestamp(message.header.stamp);
