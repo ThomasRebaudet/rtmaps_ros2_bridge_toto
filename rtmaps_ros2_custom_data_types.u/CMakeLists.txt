@@ -21,7 +21,8 @@ include("${RTMAPS_SDKDIR}/templates.u/rtmaps.cmake")
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(my_data_type REQUIRED)
+find_package(interface_rtmaps_msgs REQUIRED)
+find_package (Eigen3 REQUIRED NO_MODULE)
 
 add_rtmaps_package(${PCK} PCKINFO "${PCK}.pckinfo"
     "local_interfaces"
@@ -32,7 +33,9 @@ target_include_directories(${PCK} PRIVATE
     ../rtmaps_ros2_bridge_core_function.u/public_interfaces
     )
     
-ament_target_dependencies(${PCK} rclcpp my_data_type) 
+target_link_libraries (${PCK} Eigen3::Eigen)
+
+ament_target_dependencies(${PCK} rclcpp interface_rtmaps_msgs) 
 
 
 set_target_properties(${PCK} PROPERTIES
