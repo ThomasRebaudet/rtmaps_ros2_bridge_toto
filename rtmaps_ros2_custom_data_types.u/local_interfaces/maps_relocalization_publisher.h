@@ -11,7 +11,7 @@
 #include "maps_corefunction.h"
 #include "maps_ros2_bridge_core_function_interface.h"
 #include "maps_ros2_utils.h"
-#include "my_data_type/msg/relocalization.hpp"
+#include "interface_rtmaps_msgs/msg/relocalization.hpp"
 
 // Declares a new MAPSComponent child class
 class MAPSrelocalization_publisher : public MAPSComponent
@@ -33,7 +33,7 @@ private :
     int                             m_nbInputs;
 	bool				            m_publish_rtmaps_timestamp;
 	std_msgs::msg::Header 	        m_header; //!< ROS header
-    my_data_type::msg::Relocalization   relocalization;
+    interface_rtmaps_msgs::msg::Relocalization   relocalization;
 
     void PublishMyMsg();
     //int countInputs();

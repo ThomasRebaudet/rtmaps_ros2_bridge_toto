@@ -103,7 +103,7 @@ void MAPSrelocalization_publisher::Birth()
     {
         m_publish_rtmaps_timestamp = false;
     }
-    m_pub = m_n->create_publisher< my_data_type::msg::Relocalization >((const char*)topic_name, 100);
+    m_pub = m_n->create_publisher< interface_rtmaps_msgs::msg::Relocalization >((const char*)topic_name, 100);
 
 	//m_nbInputs = countInputs();
     
@@ -156,7 +156,7 @@ void MAPSrelocalization_publisher::Core()
 
 void MAPSrelocalization_publisher::PublishMyMsg()
 {
-    using el_typo = my_data_type::msg::Relocalization;
+    using el_typo = interface_rtmaps_msgs::msg::Relocalization;
     auto msg = std::make_unique<el_typo>();
     
     // Correct access to input data
