@@ -21,6 +21,8 @@ find_package(builtin_interfaces REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
         "msg/Relocalization.msg"
+        "msg/Detection.msg"
+        "msg/Perception.msg"
         DEPENDENCIES builtin_interfaces geometry_msgs std_msgs
         )
 
