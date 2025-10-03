@@ -25,8 +25,8 @@ MAPS_BEGIN_INPUTS_DEFINITION(MAPSrelocalization_publisher)
     MAPS_INPUT("twist", MAPS::FilterFloats32, MAPS::FifoReader)
     MAPS_INPUT("overlap", MAPS::FilterOneFloat32, MAPS::FifoReader)
     MAPS_INPUT("overlap_static", MAPS::FilterOneFloat32, MAPS::FifoReader)
-    MAPS_INPUT("processing_time", MAPS::FilterOneFloat32, MAPS::FifoReader)
     MAPS_INPUT("distance_to_map", MAPS::FilterOneFloat32, MAPS::FifoReader)
+    MAPS_INPUT("processing_time", MAPS::FilterOneFloat32, MAPS::FifoReader)
     MAPS_INPUT("num_pts_frame", MAPS::FilterOneInteger32, MAPS::FifoReader)
     MAPS_INPUT("num_pts_icp", MAPS::FilterOneInteger32, MAPS::FifoReader)
     //Adapt the above #define NB_INPUTS if you change the number of inputs.
@@ -39,10 +39,10 @@ MAPS_END_OUTPUTS_DEFINITION
 
 // Use the macros to declare the properties
 MAPS_BEGIN_PROPERTIES_DEFINITION(MAPSrelocalization_publisher)
-    MAPS_PROPERTY("topic_name","rtmaps/ros_topic_name",false,false)
+    MAPS_PROPERTY("topic_name","/rtmaps/relocalization",false,false)
     MAPS_PROPERTY_ENUM("published_timestamps","RTMaps samples timestamps|ROS current time",1,false,false)
     MAPS_PROPERTY("frame_id","map",false,false)
-    MAPS_PROPERTY_SUBTYPE("inputs_synch_tolerance",100000,false,false,MAPS::PropertySubTypeTime)
+    MAPS_PROPERTY_SUBTYPE("inputs_synch_tolerance",0,false,false,MAPS::PropertySubTypeTime)
 MAPS_END_PROPERTIES_DEFINITION
 
 // Use the macros to declare the actions
@@ -51,13 +51,14 @@ MAPS_BEGIN_ACTIONS_DEFINITION(MAPSrelocalization_publisher)
 MAPS_END_ACTIONS_DEFINITION
 
 // Use the macros to declare this component (ros_topic_publisher) behaviour
-MAPS_COMPONENT_DEFINITION(MAPSrelocalization_publisher,"relocalization_publisher","1.0",128,
+MAPS_COMPONENT_DEFINITION(MAPSrelocalization_publisher,"relocalization_publisher","1.1",128,
 			  MAPS::Threaded,MAPS::Threaded,
               -1, // Nb of inputs. Leave -1 to use the number of declared input definitions
 			  -1, // Nb of outputs. Leave -1 to use the number of declared output definitions
               -1, // Nb of properties. Leave -1 to use the number of declared property definitions
 			  -1) // Nb of actions. Leave -1 to use the number of declared action definitions
 
+//v1.1 : moved ROS Node init in constructor instead of Birth.
 
 
 // int MAPSrelocalization_publisher::countInputs() {
@@ -71,14 +72,10 @@ MAPS_COMPONENT_DEFINITION(MAPSrelocalization_publisher,"relocalization_publisher
 //     }
 //     return count;
 // }
-
-void MAPSrelocalization_publisher::Birth()
+MAPSrelocalization_publisher::MAPSrelocalization_publisher(const char* name, MAPSComponentDefinition& cd)
+: MAPSComponent(name,cd)
 {
-    m_first_time = true;
-	m_pub = nullptr;
-	MAPSString topic_name = GetStringProperty("topic_name");
-
-    try 
+try 
     {
         m_n = MAPSRos2Utils::GetROS2Node();
         if (m_n == nullptr)
@@ -90,6 +87,13 @@ void MAPSrelocalization_publisher::Birth()
         ss << "Could not init ROS2: " << e.what();
         Error(ss);
     }
+}
+
+void MAPSrelocalization_publisher::Birth()
+{
+    m_first_time = true;
+	m_pub = nullptr;
+	MAPSString topic_name = GetStringProperty("topic_name");
 
     m_pub = nullptr;
 
@@ -103,7 +107,7 @@ void MAPSrelocalization_publisher::Birth()
     {
         m_publish_rtmaps_timestamp = false;
     }
-    m_pub = m_n->create_publisher< my_data_type::msg::Relocalization >((const char*)topic_name, 100);
+    m_pub = m_n->create_publisher< interface_rtmaps_msgs::msg::Relocalization >((const char*)topic_name, 100);
 
 	//m_nbInputs = countInputs();
     
@@ -156,7 +160,7 @@ void MAPSrelocalization_publisher::Core()
 
 void MAPSrelocalization_publisher::PublishMyMsg()
 {
-    using el_typo = my_data_type::msg::Relocalization;
+    using el_typo = interface_rtmaps_msgs::msg::Relocalization;
     auto msg = std::make_unique<el_typo>();
     
     // Correct access to input data
@@ -183,8 +187,8 @@ void MAPSrelocalization_publisher::PublishMyMsg()
     
     msg->overlap = m_ioelts[9]->Float32();
     msg->overlap_static = m_ioelts[10]->Float32();
-    msg->processing_time = m_ioelts[11]->Float32();
-    msg->distance_to_map = m_ioelts[12]->Float32();
+    msg->distance_to_map = m_ioelts[11]->Float32();
+    msg->processing_time = m_ioelts[12]->Float32();
     msg->num_pts_frame = m_ioelts[13]->Integer32();
     msg->num_pts_icp = m_ioelts[14]->Integer32();   
 
@@ -197,5 +201,5 @@ void MAPSrelocalization_publisher::PublishMyMsg()
 void MAPSrelocalization_publisher::Death()
 {
     m_pub = nullptr;
-    m_n = nullptr;
+    //m_n = nullptr;
 }

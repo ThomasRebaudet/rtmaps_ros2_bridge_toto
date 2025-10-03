@@ -8,7 +8,7 @@
 // Includes maps sdk library header
 #include "maps.hpp"
 #include "maps_ros2_utils.h"
-#include "my_data_type/msg/reloc.hpp"
+#include "interface_rtmaps_msgs/msg/relocalization.hpp"
 #include <sstream>
 
 // Declares a new MAPSComponent child class
@@ -20,7 +20,7 @@ class MAPSrelocalization_subscriber : public MAPSComponent
 private :
 	// Place here your specific methods and attributes
     rclcpp::Node::SharedPtr             m_n;
-    rclcpp::Subscription<my_data_type::msg::Reloc>::SharedPtr m_sub;
+    rclcpp::Subscription<interface_rtmaps_msgs::msg::Relocalization>::SharedPtr m_sub;
 
 
 	bool 	m_first_time;
@@ -30,7 +30,7 @@ private :
 	bool 	m_transfer_ros_timestamp;
 
 
-    void ROSDataReceivedCallback(const my_data_type::msg::Reloc& message);
+    void ROSDataReceivedCallback(const interface_rtmaps_msgs::msg::Relocalization& message);
 
 };
 
